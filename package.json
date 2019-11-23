@@ -1,0 +1,14 @@
+{
+  "name": "ef_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jcespinoza13",
+  "license": "ISC",
+  "dependencies": {
+    "json-filter": "0.0.2"
+  }
+}

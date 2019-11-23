@@ -13,21 +13,23 @@
 </head>
 
 <body>
-  <video src="img/video.mp4" id="vidFondo"></video>
+  <!-- <video src="img/video.mp4" id="vidFondo"></video> -->
+  <!-- <video src="https://www.youtube.com/embed/7pdHJHrnDN0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="vidFondo"></video> -->
+  <iframe src="https://www.youtube.com/embed/7pdHJHrnDN0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <div class="contenedor">
     <div class="card rowTitulo">
       <h1>Buscador</h1>
     </div>
     <div class="colFiltros">
-      <form action="buscador.php" method="post" id="formulario">
+      <form id="formulario">
         <div class="filtrosContenido">
           <div class="tituloFiltros">
             <h5>Realiza una búsqueda personalizada</h5>
           </div>
           <div class="filtroCiudad input-field">
             <label for="selectCiudad">Ciudad:</label>
-            <select name="ciudad" id="selectCiudad">
+            <select name="ciudad" id="selectCiudad" class="selCiudad">
               <option value="" selected>Elige una ciudad</option>
             </select>
           </div>
@@ -50,10 +52,18 @@
 
     <div class="colContenido">
       <div class="tituloContenido card">
+      <form id="formulario2">
         <h5>Resultados de la búsqueda:</h5>
         <div class="divider"></div>
-        <button type="button" name="todos" class="btn-flat waves-effect" id="mostrarTodos">Mostrar Todos</button>
+        <button type="submit" name="todos" class="btn-flat waves-effect" id="mostrarTodos">Mostrar Todos</button>
+      </form>
+
       </div>
+
+      <div id="dinamic">
+
+      </div>
+
 
     </div>
   </div>
@@ -62,5 +72,6 @@
   <script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 video#vidFondo {
+  /* <iframe width="839" height="472" src="https://www.youtube.com/embed/YGiECe76xiA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */
+    /* background-image: url("https://www.youtube.com/embed/YGiECe76xiA"); */
     position: fixed;
     min-width: 100%;
     min-height: 100%;
@@ -64,6 +66,7 @@ video#vidFondo {
 .filtroCiudad .select-wrapper{
   margin: 25px auto;
   width: 90%;
+  
 }
 .filtroTipo{
   width: 100%;
@@ -137,7 +140,16 @@ video#vidFondo {
   font-size: 1.3rem;
   color: #ffab40;
 }
-.card-stacked{
+
+#inmuebles {
+  min-width: 900px;
+  max-height: 250px;
+}
+.card-image {
+  max-width: 300px;
+  max-height: 200px;
+}
+.card-stacked {
   width: 65%;
 }
 .card-action{
