@@ -28,23 +28,60 @@ function inicializarSlider(){
 /*
   Función que reproduce el video de fondo al hacer scroll, y deteiene la reproducción al detener el scroll
 */
+// var player;
+//
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('video-placeholder', {
+//         width: 600,
+//         height: 400,
+//         videoId: 'D5KuipbiL5k',
+//         playerVars: {
+//             color: 'white',
+//             playlist: '7Yk2Gn8KQLY'
+//         },
+//         events: {
+//             onReady: initialize
+//         }
+//     });
+// }
+// function initialize(){
+//
+//     // Update the controls on load
+//     updateTimerDisplay();
+//     updateProgressBar();
+//
+//     // Clear any old interval.
+//     clearInterval(time_update_interval);
+//
+//     // Start interval to update elapsed time display and
+//     // the elapsed part of the progress bar every second.
+//     time_update_interval = setInterval(function () {
+//         updateTimerDisplay();
+//         updateProgressBar();
+//     }, 1000)
+//
+// }
+
 function playVideoOnScroll(){
   var ultimoScroll = 0,
       intervalRewind;
-  var video = document.getElementById('vidFondo');
+  var player = document.getElementById('vidFondo');
   $(window)
     .scroll((event)=>{
       var scrollActual = $(window).scrollTop();
       if (scrollActual > ultimoScroll){
-       video.play();
+       // player.playVideo();
+       player.play();
      } else {
         //this.rewind(1.0, video, intervalRewind);
-        video.play();
+        // player.playVideo(); 
+        player.play();
      }
      ultimoScroll = scrollActual;
     })
     .scrollEnd(()=>{
-      video.pause();
+      // player.pauseVideo();
+      player.pause();
     }, 10)
 }
 
@@ -62,8 +99,8 @@ $(document).ready(function() {
     $('#formulario').submit(submitButton);
     $('#formulario2').submit(muestratodo);
     $('document').ready(function(){
-      cargaCiudad();
-      cargaTipo();
+      cargaSelect(1);
+      cargaSelect(2);
     });
 
   });
@@ -120,8 +157,8 @@ function submitButton(event){
 }
 
 
-function cargaCiudad(){
-  var types = 1;
+function cargaSelect(types){
+  var types = types;
   form_data = new FormData();
   form_data.append('type', types);
   $.ajax({
@@ -133,37 +170,14 @@ function cargaCiudad(){
     type: 'post',
     data: form_data,
     success: function(myjson){
+      if(types == 1){
+        $("#selectCiudad").append(myjson);
+        $("select").material_select();
+      }else if (types == 2) {
+        $("#selectTipo").append(myjson);
+        $("select").material_select();
+      }
 
-      var codigo = '<select name="ciudad" id="selectCiudad">';
-      codigo = codigo + '<option value="" selected>Elige una ciudad</option>';
-      codigo = codigo + myjson;
-      codigo = codigo + '</select>';
-      // alert(myjson);
-      $("#selectCiudad").append(myjson);
-      $("select").material_select();
-    },
-    error: function(){
-      alert("error al enviar el formulario");
-    }
-  })
-}
-function cargaTipo(){
-  var types = 2;
-  form_data = new FormData();
-  form_data.append('type', types);
-  $.ajax({
-    url: './motor.php',
-    dataType: 'text',
-    cache: false,
-    contentType: false,
-    processData: false,
-    type: 'post',
-    data: form_data,
-    success: function(myjson){
-
-      // alert(myjson);
-      $("#selectTipo").append(myjson);
-      $("select").material_select();
     },
     error: function(){
       alert("error al enviar el formulario");

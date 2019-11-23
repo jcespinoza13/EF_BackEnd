@@ -1,6 +1,5 @@
 video#vidFondo {
-  /* <iframe width="839" height="472" src="https://www.youtube.com/embed/YGiECe76xiA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */
-    /* background-image: url("https://www.youtube.com/embed/YGiECe76xiA"); */
+/* #video-placeholder { */
     position: fixed;
     min-width: 100%;
     min-height: 100%;
@@ -66,7 +65,7 @@ video#vidFondo {
 .filtroCiudad .select-wrapper{
   margin: 25px auto;
   width: 90%;
-  
+
 }
 .filtroTipo{
   width: 100%;
